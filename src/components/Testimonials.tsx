@@ -1,23 +1,20 @@
-import { Quote } from "lucide-react";
+import { Play } from "lucide-react";
 
 const testimonials = [
   {
     name: "Vijay Kumar Pooniya",
     organization: "Vijay Education",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
-    quote: "ClassConnect transformed how I teach. My student engagement increased by 300% within months!"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
   },
   {
     name: "Mohit Goenka",
     organization: "Eduniti",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
-    quote: "The branded app feature helped me establish credibility and grow my coaching institute exponentially."
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face"
   },
   {
     name: "Baljinder Singh",
     organization: "Positive Vibes",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
-    quote: "From 50 students to 5000+ in one year. ClassConnect made scaling my teaching business effortless."
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
   }
 ];
 
@@ -38,27 +35,27 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-2xl"
             >
-              {/* Quote Icon */}
-              <div className="mb-6 inline-flex rounded-xl bg-primary/10 p-3">
-                <Quote className="h-6 w-6 text-primary" />
-              </div>
-              
-              {/* Quote Text */}
-              <p className="mb-6 text-muted-foreground leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-              
-              {/* Author Info */}
-              <div className="flex items-center gap-4">
+              {/* Image */}
+              <div className="relative aspect-[4/5] overflow-hidden">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="h-12 w-12 rounded-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div>
-                  <h3 className="font-semibold text-foreground">
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent" />
+                
+                {/* Play Button */}
+                <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-sky-500/80 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-sky-500">
+                  <Play className="h-6 w-6 text-primary-foreground ml-1" fill="currentColor" />
+                </button>
+                
+                {/* Info */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-lg font-semibold text-foreground">
                     {testimonial.name}
                   </h3>
                   <p className="text-sm text-muted-foreground">
