@@ -35,7 +35,7 @@ const OwnerInfo = ({ data, updateData, onBack, onComplete }: OwnerInfoProps) => 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onComplete();
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
