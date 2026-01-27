@@ -9,10 +9,7 @@ const stats = [
 
 const Hero = () => {
   return (
-    <section className="hero-gradient relative min-h-screen overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute right-1/4 top-1/3 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
-      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-sky-600/10 blur-2xl" />
+    <section className="relative min-h-screen overflow-hidden bg-background">
       
       <div className="container relative mx-auto flex min-h-screen items-center px-6 py-20 lg:px-12">
         <div className="grid w-full gap-12 lg:grid-cols-2 lg:gap-8">
@@ -20,7 +17,7 @@ const Hero = () => {
           <div className="flex flex-col justify-center space-y-8 animate-fade-in">
             <h1 className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
               Build your online brand{" "}
-              <span className="text-gradient">identity</span> with Classplus
+              <span className="text-gradient">identity</span> with ClassConnect
             </h1>
             
             <p className="max-w-lg text-lg text-muted-foreground md:text-xl">
