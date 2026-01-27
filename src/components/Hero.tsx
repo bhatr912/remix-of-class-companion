@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="container relative mx-auto flex min-h-screen items-center px-6 py-20 lg:px-12">
         <div className="grid w-full gap-12 lg:grid-cols-2 lg:gap-8">
           {/* Left Content */}
-          <div className="flex flex-col justify-center space-y-8 animate-fade-in">
+          <div className="flex flex-col justify-center space-y-8 animate-fade-in mt-8 lg:mt-12">
             <h1 className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
               Build your online brand{" "}
               <span className="text-gradient">identity</span> with ClassConnect
