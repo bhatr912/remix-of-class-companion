@@ -10,7 +10,11 @@ const Footer = () => {
     { icon: Linkedin, href: "#" },
   ];
 
-  const footerLinks = ["Features", "Pricing", "About", "Contact"];
+  const footerLinks = [
+    { label: "Features", href: "#features" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Pricing", href: "#pricing" },
+  ];
 
   return (
     <footer className="hero-gradient border-t border-border py-12">
@@ -43,11 +47,11 @@ const Footer = () => {
           <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
                 className="text-muted-foreground transition-colors hover:text-primary"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </nav>
