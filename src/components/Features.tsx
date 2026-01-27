@@ -42,10 +42,8 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="relative bg-muted/30 py-20 lg:py-28 overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-      <div className="container relative z-10 mx-auto px-6 lg:px-12">
+    <section className="hero-gradient py-20 lg:py-28">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
