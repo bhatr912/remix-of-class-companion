@@ -4,7 +4,7 @@ import { Users, BookOpen, GraduationCap, TrendingUp } from "lucide-react";
 
 const Dashboard = () => {
   return (
-    <DashboardLayout userName="John Doe" userRole="Administrator">
+    <DashboardLayout userName="JD">
       {/* Page Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
