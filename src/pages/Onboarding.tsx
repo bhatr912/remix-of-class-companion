@@ -42,15 +42,22 @@ const Onboarding = () => {
     // TODO: Submit data to backend
   };
 
-  const steps = [
-    <InstituteDetails key="institute" data={data} updateData={updateData} onNext={nextStep} />,
-    <OwnerInfo key="owner" data={data} updateData={updateData} onNext={nextStep} onBack={prevStep} />,
-    <Setup key="setup" data={data} updateData={updateData} onBack={prevStep} onComplete={handleComplete} />,
-  ];
+  const renderStep = () => {
+    switch (currentStep) {
+      case 0:
+        return <InstituteDetails data={data} updateData={updateData} onNext={nextStep} />;
+      case 1:
+        return <OwnerInfo data={data} updateData={updateData} onNext={nextStep} onBack={prevStep} />;
+      case 2:
+        return <Setup data={data} updateData={updateData} onBack={prevStep} onComplete={handleComplete} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <OnboardingLayout currentStep={currentStep}>
-      {steps[currentStep]}
+      {renderStep()}
     </OnboardingLayout>
   );
 };
