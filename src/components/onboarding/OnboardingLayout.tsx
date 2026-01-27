@@ -63,14 +63,6 @@ const OnboardingLayout = ({ children, currentStep }: OnboardingLayoutProps) => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t bg-background/80 backdrop-blur-sm px-6 py-4 mt-auto">
-        <div className="container mx-auto flex items-center justify-center gap-4 text-sm text-muted-foreground">
-          <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-          <span className="text-muted">•</span>
-          <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-        </div>
-      </footer>
     </div>
   );
 };
