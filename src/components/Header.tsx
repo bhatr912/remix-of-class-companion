@@ -20,7 +20,7 @@ const Header = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="ml-2 text-xl font-bold text-foreground">Classplus</span>
+            <span className="ml-2 text-xl font-bold text-foreground">ClassConnect</span>
           </div>
         </Link>
 
