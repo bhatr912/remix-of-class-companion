@@ -49,10 +49,15 @@ const Hero = () => {
 
           {/* Right Content - Hero Image */}
           <div className="relative flex items-center justify-center lg:justify-end">
+            {/* Background decorative elements */}
+            <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[450px] w-[450px] rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-transparent blur-sm" />
+            <div className="absolute -right-4 top-1/2 -translate-y-1/2 h-[380px] w-[380px] rounded-full border border-primary/10" />
+            <div className="absolute right-8 top-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full border border-primary/5" />
+            
             <img 
               src={heroEducator} 
               alt="Educator" 
-              className="max-h-[500px] w-auto object-contain animate-float"
+              className="relative z-10 max-h-[500px] w-auto object-contain animate-float"
             />
           </div>
         </div>
