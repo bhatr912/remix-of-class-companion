@@ -2,7 +2,6 @@ import { useState } from "react";
 import OnboardingLayout from "@/components/onboarding/OnboardingLayout";
 import InstituteDetails from "@/components/onboarding/steps/InstituteDetails";
 import OwnerInfo from "@/components/onboarding/steps/OwnerInfo";
-import Setup from "@/components/onboarding/steps/Setup";
 
 export interface OnboardingData {
   instituteName: string;
@@ -12,7 +11,6 @@ export interface OnboardingData {
   email: string;
   phone: string;
   password: string;
-  preferences: string[];
 }
 
 const INITIAL_DATA: OnboardingData = {
@@ -23,7 +21,6 @@ const INITIAL_DATA: OnboardingData = {
   email: "",
   phone: "",
   password: "",
-  preferences: [],
 };
 
 const Onboarding = () => {
@@ -34,7 +31,7 @@ const Onboarding = () => {
     setData((prev) => ({ ...prev, ...fields }));
   };
 
-  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 2));
+  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 1));
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
 
   const handleComplete = () => {
@@ -47,9 +44,7 @@ const Onboarding = () => {
       case 0:
         return <InstituteDetails data={data} updateData={updateData} onNext={nextStep} />;
       case 1:
-        return <OwnerInfo data={data} updateData={updateData} onNext={nextStep} onBack={prevStep} />;
-      case 2:
-        return <Setup data={data} updateData={updateData} onBack={prevStep} onComplete={handleComplete} />;
+        return <OwnerInfo data={data} updateData={updateData} onBack={prevStep} onComplete={handleComplete} />;
       default:
         return null;
     }
