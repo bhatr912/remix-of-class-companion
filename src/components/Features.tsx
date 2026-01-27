@@ -42,7 +42,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="hero-gradient py-20 lg:py-28">
+    <section id="features" className="hero-gradient py-20 lg:py-28">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="mb-16 text-center">
