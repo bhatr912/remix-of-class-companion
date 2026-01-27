@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, BookOpen, Calendar, Settings, ChevronRight } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, Calendar, Settings, PanelLeftClose, PanelLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -11,20 +12,26 @@ const navItems = [
 ];
 
 interface DashboardSidebarProps {
-  userName?: string;
-  userRole?: string;
+  collapsed: boolean;
+  onToggle: () => void;
 }
 
-const DashboardSidebar = ({ userName = "John Doe", userRole = "Administrator" }: DashboardSidebarProps) => {
+const DashboardSidebar = ({ collapsed, onToggle }: DashboardSidebarProps) => {
   const location = useLocation();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r bg-card flex flex-col">
-      {/* Logo */}
-      <div className="flex items-center gap-2 px-6 py-5 border-b">
+    <aside className={cn(
+      "fixed left-0 top-0 z-40 h-screen border-r bg-card flex flex-col transition-all duration-300",
+      collapsed ? "w-16" : "w-64"
+    )}>
+      {/* Logo Header - matches main header height */}
+      <div className={cn(
+        "flex items-center h-16 border-b px-4",
+        collapsed ? "justify-center" : "gap-2"
+      )}>
         <svg 
           viewBox="0 0 24 24" 
-          className="h-8 w-8 text-primary"
+          className="h-8 w-8 text-primary shrink-0"
           fill="currentColor"
         >
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" 
@@ -35,11 +42,13 @@ const DashboardSidebar = ({ userName = "John Doe", userRole = "Administrator" }:
             strokeLinejoin="round"
           />
         </svg>
-        <span className="text-xl font-bold text-foreground">ClassConnect</span>
+        {!collapsed && (
+          <span className="text-xl font-bold text-foreground">ClassConnect</span>
+        )}
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-6 space-y-1">
+      <nav className="flex-1 px-3 py-4 space-y-1">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path || 
             (item.path === "/dashboard" && location.pathname === "/dashboard");
@@ -49,33 +58,41 @@ const DashboardSidebar = ({ userName = "John Doe", userRole = "Administrator" }:
               key={item.path}
               to={item.path}
               className={cn(
-                "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all",
+                "flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-all",
+                collapsed && "justify-center px-0",
                 isActive 
-                  ? "bg-primary/10 text-primary" 
+                  ? "bg-primary text-primary-foreground" 
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
+              title={collapsed ? item.label : undefined}
             >
-              <item.icon className="h-5 w-5" />
-              {item.label}
+              <item.icon className="h-5 w-5 shrink-0" />
+              {!collapsed && item.label}
             </Link>
           );
         })}
       </nav>
 
-      {/* User Profile */}
-      <div className="border-t p-4">
-        <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-muted transition-colors cursor-pointer">
-          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-            <span className="text-sm font-semibold text-primary">
-              {userName.split(' ').map(n => n[0]).join('')}
-            </span>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-foreground truncate">{userName}</p>
-            <p className="text-xs text-muted-foreground truncate">{userRole}</p>
-          </div>
-          <ChevronRight className="h-4 w-4 text-muted-foreground" />
-        </div>
+      {/* Collapse Toggle Button */}
+      <div className="border-t p-3">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onToggle}
+          className={cn(
+            "w-full justify-center",
+            !collapsed && "justify-start"
+          )}
+        >
+          {collapsed ? (
+            <PanelLeft className="h-5 w-5" />
+          ) : (
+            <>
+              <PanelLeftClose className="h-5 w-5 mr-2" />
+              <span>Collapse</span>
+            </>
+          )}
+        </Button>
       </div>
     </aside>
   );

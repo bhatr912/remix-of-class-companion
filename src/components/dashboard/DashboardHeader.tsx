@@ -1,14 +1,15 @@
-import { Search, Bell, Menu } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 interface DashboardHeaderProps {
   onMenuClick?: () => void;
+  userName?: string;
 }
 
-const DashboardHeader = ({ onMenuClick }: DashboardHeaderProps) => {
+const DashboardHeader = ({ onMenuClick, userName = "JD" }: DashboardHeaderProps) => {
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background/95 backdrop-blur px-6">
+    <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-6">
       {/* Mobile menu button */}
       <Button 
         variant="ghost" 
@@ -20,7 +21,7 @@ const DashboardHeader = ({ onMenuClick }: DashboardHeaderProps) => {
       </Button>
 
       {/* Search */}
-      <div className="flex-1 max-w-md">
+      <div className="flex-1 max-w-xl">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input 
@@ -30,15 +31,10 @@ const DashboardHeader = ({ onMenuClick }: DashboardHeaderProps) => {
         </div>
       </div>
 
-      {/* Right side actions */}
-      <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" className="relative">
-          <Bell className="h-5 w-5" />
-          <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-destructive" />
-        </Button>
-        
-        <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center">
-          <span className="text-sm font-semibold text-primary">JD</span>
+      {/* Right side - Profile only */}
+      <div className="flex items-center ml-auto">
+        <div className="h-10 w-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity">
+          <span className="text-sm font-semibold">{userName}</span>
         </div>
       </div>
     </header>
