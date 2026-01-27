@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTABanner = () => {
   return (
@@ -15,10 +16,13 @@ const CTABanner = () => {
               </p>
             </div>
             
-            <button className="button-gradient group flex items-center gap-2 rounded-xl px-8 py-4 font-semibold text-primary-foreground transition-all button-shadow hover:opacity-90">
+            <Link 
+              to="/onboarding"
+              className="button-gradient group inline-flex items-center gap-2 rounded-xl px-8 py-4 font-semibold text-primary-foreground transition-all button-shadow hover:opacity-90"
+            >
               Start now
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
