@@ -1,4 +1,4 @@
-import { Building2, User, Settings, Check, HelpCircle } from "lucide-react";
+import { Building2, User, Check, HelpCircle } from "lucide-react";
 
 interface OnboardingProgressProps {
   currentStep: number;
@@ -16,12 +16,6 @@ const steps = [
     title: "Owner Info",
     subtitle: "Contact details",
     icon: User,
-  },
-  {
-    id: 2,
-    title: "Setup",
-    subtitle: "Preferences",
-    icon: Settings,
   },
 ];
 
@@ -43,17 +37,17 @@ const OnboardingProgress = ({ currentStep }: OnboardingProgressProps) => {
           return (
             <div key={step.id} className="relative">
               <div
-                className={`flex items-start gap-4 rounded-lg p-3 transition-colors ${
-                  isCurrent ? "bg-primary/5" : ""
+                className={`flex items-start gap-4 rounded-xl p-4 transition-all duration-300 ${
+                  isCurrent ? "bg-primary/10 shadow-sm" : ""
                 }`}
               >
                 {/* Icon */}
                 <div
-                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                     isCompleted
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-primary text-primary-foreground shadow-md"
                       : isCurrent
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-primary text-primary-foreground shadow-md ring-4 ring-primary/20"
                       : "bg-muted text-muted-foreground"
                   }`}
                 >
@@ -65,9 +59,9 @@ const OnboardingProgress = ({ currentStep }: OnboardingProgressProps) => {
                 </div>
 
                 {/* Text */}
-                <div>
+                <div className="pt-1">
                   <p
-                    className={`font-medium ${
+                    className={`font-semibold transition-colors ${
                       isCurrent ? "text-primary" : isCompleted ? "text-foreground" : "text-muted-foreground"
                     }`}
                   >
@@ -79,10 +73,10 @@ const OnboardingProgress = ({ currentStep }: OnboardingProgressProps) => {
 
               {/* Connector Line */}
               {index < steps.length - 1 && (
-                <div className="absolute left-[1.4rem] top-[3.25rem] h-8 w-0.5">
+                <div className="absolute left-[1.65rem] top-[3.75rem] h-6 w-0.5">
                   <div
-                    className={`h-full w-full transition-colors ${
-                      isCompleted ? "bg-primary" : "bg-muted"
+                    className={`h-full w-full rounded-full transition-colors duration-300 ${
+                      isCompleted ? "bg-primary" : "bg-border"
                     }`}
                   />
                 </div>
@@ -93,12 +87,12 @@ const OnboardingProgress = ({ currentStep }: OnboardingProgressProps) => {
       </div>
 
       {/* Help Section */}
-      <div className="mt-8 flex items-start gap-3 rounded-lg border bg-muted/50 p-4">
-        <div className="rounded-full bg-primary/10 p-2">
+      <div className="mt-8 flex items-start gap-3 rounded-xl border border-primary/20 bg-primary/5 p-4">
+        <div className="rounded-full bg-primary/10 p-2.5">
           <HelpCircle className="h-4 w-4 text-primary" />
         </div>
         <div>
-          <p className="text-sm font-medium text-foreground">Need help?</p>
+          <p className="text-sm font-semibold text-foreground">Need help?</p>
           <p className="text-xs text-muted-foreground">Contact our support team</p>
         </div>
       </div>
