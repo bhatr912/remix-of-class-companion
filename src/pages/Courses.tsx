@@ -28,7 +28,7 @@ const sampleCourses = [
     id: 1,
     name: "NEET",
     icon: Heart,
-    classes: ["Class 11", "Class 12", "Dropper"],
+    programs: ["Class 11", "Class 12", "Dropper"],
     color: "bg-rose-50",
     iconColor: "text-rose-500"
   },
@@ -36,7 +36,7 @@ const sampleCourses = [
     id: 2,
     name: "IIT JEE",
     icon: Stethoscope,
-    classes: ["Class 11", "Class 12", "Dropper"],
+    programs: ["Class 11", "Class 12", "Dropper"],
     color: "bg-amber-50",
     iconColor: "text-amber-600"
   },
@@ -44,7 +44,7 @@ const sampleCourses = [
     id: 3,
     name: "Pre Foundation",
     icon: BookOpen,
-    classes: ["Class 8", "Class 9", "Class 10"],
+    programs: ["Class 8", "Class 9", "Class 10"],
     color: "bg-blue-50",
     iconColor: "text-blue-500"
   },
@@ -52,7 +52,7 @@ const sampleCourses = [
     id: 4,
     name: "Board Exams",
     icon: GraduationCap,
-    classes: ["Class 10", "Class 12"],
+    programs: ["Class 10", "Class 12"],
     color: "bg-green-50",
     iconColor: "text-green-500"
   },
@@ -60,7 +60,7 @@ const sampleCourses = [
     id: 5,
     name: "Programming",
     icon: Code,
-    classes: ["Beginner", "Intermediate", "Advanced"],
+    programs: ["Beginner", "Intermediate", "Advanced"],
     color: "bg-purple-50",
     iconColor: "text-purple-500"
   },
@@ -68,7 +68,7 @@ const sampleCourses = [
     id: 6,
     name: "Science Olympiad",
     icon: Atom,
-    classes: ["Class 6-8", "Class 9-10", "Class 11-12"],
+    programs: ["Class 6-8", "Class 9-10", "Class 11-12"],
     color: "bg-cyan-50",
     iconColor: "text-cyan-500"
   },
@@ -109,7 +109,7 @@ const Courses = () => {
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[300px]">Name</TableHead>
-                <TableHead>Classes</TableHead>
+                <TableHead>Programs</TableHead>
                 <TableHead className="text-right w-[150px]">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -126,7 +126,7 @@ const Courses = () => {
                   </TableCell>
                   <TableCell>
                     <span className="text-muted-foreground">
-                      {course.classes.join(", ")}
+                      {course.programs.join(", ")}
                     </span>
                   </TableCell>
                   <TableCell className="text-right">
