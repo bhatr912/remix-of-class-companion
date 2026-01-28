@@ -39,10 +39,6 @@ const AddCourse = () => {
     icon: "",
     color: "",
   });
-  const [sectionData, setSectionData] = useState({
-    title: "Our Courses",
-    description: "Prepare for your dream career with our meticulously crafted course structures.",
-  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,43 +80,6 @@ const AddCourse = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Courses Section Settings */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Courses Section</CardTitle>
-              <CardDescription>Customize the title and description shown on your courses page</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="sectionTitle">Section Title</Label>
-                <Input
-                  id="sectionTitle"
-                  placeholder="e.g., Our Courses"
-                  value={sectionData.title}
-                  onChange={(e) => setSectionData({ ...sectionData, title: e.target.value })}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="sectionDescription">Section Description</Label>
-                <Textarea
-                  id="sectionDescription"
-                  placeholder="Describe your courses section..."
-                  value={sectionData.description}
-                  onChange={(e) => setSectionData({ ...sectionData, description: e.target.value })}
-                  rows={3}
-                />
-              </div>
-              {/* Section Preview */}
-              <div className="pt-4 border-t">
-                <Label className="mb-3 block">Section Preview</Label>
-                <div className="p-6 border rounded-lg bg-card text-center">
-                  <h2 className="text-2xl font-bold text-foreground">{sectionData.title || "Our Courses"}</h2>
-                  <p className="text-muted-foreground mt-2">{sectionData.description || "Your description here..."}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
           {/* Basic Info */}
           <Card>
             <CardHeader>
