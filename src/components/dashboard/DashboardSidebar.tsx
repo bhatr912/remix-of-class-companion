@@ -47,12 +47,28 @@ interface DashboardSidebarProps {
 
 const DashboardSidebar = ({ collapsed, onToggle }: DashboardSidebarProps) => {
   const location = useLocation();
-  const [openMenus, setOpenMenus] = useState<string[]>(["Courses"]);
+  
+  // Find which menu contains the current route
+  const getActiveMenu = () => {
+    const activeItem = navItems.find(
+      item => item.subItems?.some(sub => location.pathname === sub.path)
+    );
+    return activeItem?.label || null;
+  };
+
+  const [openMenu, setOpenMenu] = useState<string | null>(getActiveMenu);
 
   const toggleMenu = (label: string) => {
-    setOpenMenus((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]
-    );
+    // Accordion behavior: close if already open, otherwise open this one (closing others)
+    setOpenMenu((prev) => (prev === label ? null : label));
+  };
+
+  // Keep the menu open if it contains the active route
+  const isMenuOpen = (label: string) => {
+    const containsActiveRoute = navItems
+      .find(item => item.label === label)
+      ?.subItems?.some(sub => location.pathname === sub.path);
+    return openMenu === label || containsActiveRoute;
   };
 
   return (
@@ -88,7 +104,7 @@ const DashboardSidebar = ({ collapsed, onToggle }: DashboardSidebarProps) => {
         {navItems.map((item) => {
           const isActive = location.pathname === item.path || 
             (item.subItems && item.subItems.some(sub => location.pathname === sub.path));
-          const isOpen = openMenus.includes(item.label);
+          const isOpen = isMenuOpen(item.label);
           
           if (item.subItems && !collapsed) {
             return (
