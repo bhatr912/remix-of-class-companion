@@ -21,7 +21,6 @@ const navItems: NavItem[] = [
     path: "/dashboard/courses",
     subItems: [
       { label: "Manage Courses", path: "/dashboard/courses", icon: List },
-      { label: "Add Course", path: "/dashboard/courses/add", icon: Plus },
       { label: "Programs", path: "/dashboard/programs", icon: Layers },
       { label: "Batches", path: "/dashboard/batches", icon: ClipboardList },
     ]
