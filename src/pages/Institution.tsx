@@ -323,7 +323,7 @@ const Institution = () => {
                 <div className="space-y-3">
                   <Label>Cover Image</Label>
                   {coverImage ? (
-                    <div className="relative aspect-[3/1] w-full overflow-hidden rounded-lg border">
+                    <div className="relative aspect-[4/1] w-full overflow-hidden rounded-lg border">
                       <img 
                         src={coverImage} 
                         alt="Cover Image"
@@ -340,7 +340,7 @@ const Institution = () => {
                       </Button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center aspect-[3/1] w-full border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
+                    <label className="flex flex-col items-center justify-center aspect-[4/1] w-full border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
                       <ImagePlus className="h-10 w-10 text-muted-foreground mb-2" />
                       <span className="text-sm text-muted-foreground">Click to upload cover image</span>
                       <span className="text-xs text-muted-foreground mt-1">Recommended: 1500x500px</span>
