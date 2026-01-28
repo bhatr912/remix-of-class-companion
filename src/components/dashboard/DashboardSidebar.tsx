@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, BookOpen, Settings, PanelLeftClose, PanelLeft, Building, ChevronDown, Plus, List, MapPin } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, PanelLeftClose, PanelLeft, Building, ChevronDown, Plus, List, MapPin, GraduationCap, UserCog, Layers, Users2, ClipboardList, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -22,11 +22,22 @@ const navItems: NavItem[] = [
     subItems: [
       { label: "Manage Courses", path: "/dashboard/courses", icon: List },
       { label: "Add Course", path: "/dashboard/courses/add", icon: Plus },
+      { label: "Programs", path: "/dashboard/programs", icon: Layers },
+      { label: "Batches", path: "/dashboard/batches", icon: ClipboardList },
     ]
   },
-  { icon: Users, label: "Students", path: "/dashboard/students" },
+  { 
+    icon: Users, 
+    label: "Users", 
+    path: "/dashboard/students",
+    subItems: [
+      { label: "Students", path: "/dashboard/students", icon: GraduationCap },
+      { label: "Admins", path: "/dashboard/admins", icon: UserCog },
+    ]
+  },
+  { icon: Users2, label: "Faculty", path: "/dashboard/faculty" },
   { icon: MapPin, label: "Centers", path: "/dashboard/centers" },
-  { icon: Settings, label: "Settings", path: "/dashboard/settings" },
+  { icon: FileText, label: "Results", path: "/dashboard/results" },
 ];
 
 interface DashboardSidebarProps {
