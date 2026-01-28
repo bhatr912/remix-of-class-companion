@@ -20,6 +20,17 @@ const iconOptions = [
   { value: "calculator", label: "Calculator", url: "https://cdn-icons-png.flaticon.com/512/897/897368.png" },
   { value: "beaker", label: "Science", url: "https://cdn-icons-png.flaticon.com/512/2541/2541988.png" },
   { value: "globe", label: "Globe", url: "https://cdn-icons-png.flaticon.com/512/616/616616.png" },
+  { value: "music", label: "Music", url: "https://cdn-icons-png.flaticon.com/512/3659/3659784.png" },
+  { value: "art", label: "Art", url: "https://cdn-icons-png.flaticon.com/512/1048/1048944.png" },
+  { value: "sports", label: "Sports", url: "https://cdn-icons-png.flaticon.com/512/857/857418.png" },
+  { value: "language", label: "Language", url: "https://cdn-icons-png.flaticon.com/512/3898/3898082.png" },
+  { value: "computer", label: "Computer", url: "https://cdn-icons-png.flaticon.com/512/2004/2004580.png" },
+  { value: "rocket", label: "Rocket", url: "https://cdn-icons-png.flaticon.com/512/2909/2909710.png" },
+  { value: "brain", label: "Brain", url: "https://cdn-icons-png.flaticon.com/512/3304/3304567.png" },
+  { value: "target", label: "Target", url: "https://cdn-icons-png.flaticon.com/512/3207/3207593.png" },
+  { value: "trophy", label: "Trophy", url: "https://cdn-icons-png.flaticon.com/512/2583/2583344.png" },
+  { value: "lightbulb", label: "Idea", url: "https://cdn-icons-png.flaticon.com/512/3176/3176369.png" },
+  { value: "puzzle", label: "Puzzle", url: "https://cdn-icons-png.flaticon.com/512/1587/1587402.png" },
 ];
 
 const colorOptions = [
