@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import DashboardLayout, { useSidebarState } from "@/components/dashboard/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -51,6 +51,8 @@ const categories = [
 ];
 
 const Institution = () => {
+  const { collapsed } = useSidebarState();
+  
   // Tuition Info (from onboarding - editable)
   const [instituteName, setInstituteName] = useState("Excellence Academy");
   const [category, setCategory] = useState("Coaching Institute");
@@ -143,7 +145,10 @@ const Institution = () => {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6 max-w-5xl mx-auto">
+      <div className={cn(
+        "space-y-6 mx-auto transition-all duration-300",
+        collapsed ? "max-w-6xl" : "max-w-5xl"
+      )}>
         {/* Tuition Info Card */}
         <Card>
           <CardHeader>
