@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, BookOpen, Calendar, Settings, PanelLeftClose, PanelLeft, Building, ChevronDown, Plus, List } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, Settings, PanelLeftClose, PanelLeft, Building, ChevronDown, Plus, List, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
     ]
   },
   { icon: Users, label: "Students", path: "/dashboard/students" },
-  { icon: Calendar, label: "Schedule", path: "/dashboard/schedule" },
+  { icon: MapPin, label: "Centers", path: "/dashboard/centers" },
   { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 
