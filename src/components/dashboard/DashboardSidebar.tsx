@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, BookOpen, PanelLeftClose, PanelLeft, Building, ChevronDown, Plus, List, MapPin, GraduationCap, UserCog, Layers, Users2, ClipboardList, FileText } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, PanelLeftClose, PanelLeft, Building, ChevronDown, List, MapPin, GraduationCap, UserCog, Layers, Users2, ClipboardList, FileText, Palette } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -37,6 +37,7 @@ const navItems: NavItem[] = [
   { icon: Users2, label: "Faculty", path: "/dashboard/faculty" },
   { icon: MapPin, label: "Centers", path: "/dashboard/centers" },
   { icon: FileText, label: "Results", path: "/dashboard/results" },
+  { icon: Palette, label: "Customization", path: "/dashboard/customization" },
 ];
 
 interface DashboardSidebarProps {
