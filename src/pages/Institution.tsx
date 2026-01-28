@@ -143,7 +143,7 @@ const Institution = () => {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6 max-w-5xl">
+      <div className="space-y-6 max-w-5xl mx-auto">
         {/* Tuition Info Card */}
         <Card>
           <CardHeader>
