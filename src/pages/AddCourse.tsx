@@ -4,10 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
-import { X, Plus, ArrowLeft, Heart, BookOpen, GraduationCap, Code, Atom, Stethoscope, Calculator, Beaker, Globe } from "lucide-react";
+import { ArrowLeft, Heart, BookOpen, GraduationCap, Code, Atom, Stethoscope, Calculator, Beaker, Globe } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
@@ -37,35 +35,14 @@ const AddCourse = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
-    description: "",
     icon: "",
     color: "",
   });
-  const [tags, setTags] = useState<string[]>([]);
-  const [tagInput, setTagInput] = useState("");
-
-  const handleAddTag = () => {
-    if (tagInput.trim() && !tags.includes(tagInput.trim())) {
-      setTags([...tags, tagInput.trim()]);
-      setTagInput("");
-    }
-  };
-
-  const handleRemoveTag = (tagToRemove: string) => {
-    setTags(tags.filter((tag) => tag !== tagToRemove));
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleAddTag();
-    }
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.description || !formData.icon || !formData.color) {
+    if (!formData.name || !formData.icon || !formData.color) {
       toast({
         title: "Missing Fields",
         description: "Please fill in all required fields.",
@@ -119,57 +96,6 @@ const AddCourse = () => {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="description">Description *</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Brief description of the course..."
-                  rows={3}
-                  value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label>Tags / Classes</Label>
-                <div className="flex gap-2">
-                  <Input
-                    placeholder="Add a tag (e.g., Class 11)"
-                    value={tagInput}
-                    onChange={(e) => setTagInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                  />
-                  <Button type="button" variant="outline" onClick={handleAddTag}>
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
-                {tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="gap-1">
-                        {tag}
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveTag(tag)}
-                          className="ml-1 hover:text-destructive"
-                        >
-                          <X className="h-3 w-3" />
-                        </button>
-                      </Badge>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Appearance */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Appearance</CardTitle>
-              <CardDescription>Choose an icon and color for the course card</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Icon *</Label>
@@ -221,15 +147,10 @@ const AddCourse = () => {
                 <div className="pt-4 border-t">
                   <Label className="mb-3 block">Preview</Label>
                   <div className="flex items-center gap-4 p-4 border rounded-lg bg-card">
-                    <div className={`${selectedColor.bg} p-4 rounded-full`}>
-                      <selectedIcon.icon className={`h-8 w-8 ${selectedColor.text}`} />
+                    <div className={`${selectedColor.bg} p-3 rounded-full`}>
+                      <selectedIcon.icon className={`h-6 w-6 ${selectedColor.text}`} />
                     </div>
-                    <div>
-                      <h3 className="font-bold">{formData.name || "Course Name"}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {formData.description || "Course description"}
-                      </p>
-                    </div>
+                    <h3 className="font-bold">{formData.name || "Course Name"}</h3>
                   </div>
                 </div>
               )}
