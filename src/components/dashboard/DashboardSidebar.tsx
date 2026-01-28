@@ -49,7 +49,10 @@ const DashboardSidebar = ({ collapsed, onToggle }: DashboardSidebarProps) => {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className={cn(
+        "flex-1 py-4 space-y-1",
+        collapsed ? "px-2" : "px-3"
+      )}>
         {navItems.map((item) => {
           const isActive = location.pathname === item.path || 
             (item.path === "/dashboard" && location.pathname === "/dashboard");
@@ -59,8 +62,8 @@ const DashboardSidebar = ({ collapsed, onToggle }: DashboardSidebarProps) => {
               key={item.path}
               to={item.path}
               className={cn(
-                "flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-all",
-                collapsed && "justify-center px-0",
+                "flex items-center gap-3 py-3 rounded-lg text-sm font-medium transition-all",
+                collapsed ? "justify-center px-0" : "px-3",
                 isActive 
                   ? "bg-primary text-primary-foreground" 
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
