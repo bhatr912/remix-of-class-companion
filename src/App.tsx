@@ -15,6 +15,7 @@ import Centers from "./pages/Centers";
 import Admins from "./pages/Admins";
 import Faculty from "./pages/Faculty";
 import Results from "./pages/Results";
+import Students from "./pages/Students";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/dashboard/programs" element={<Programs />} />
           <Route path="/dashboard/batches" element={<Batches />} />
           <Route path="/dashboard/centers" element={<Centers />} />
+          <Route path="/dashboard/students" element={<Students />} />
           <Route path="/dashboard/admins" element={<Admins />} />
           <Route path="/dashboard/faculty" element={<Faculty />} />
           <Route path="/dashboard/results" element={<Results />} />
