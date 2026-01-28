@@ -1,10 +1,5 @@
-import { useState } from "react";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Plus, Pencil, Trash2, Heart, Stethoscope, BookOpen, GraduationCap, Code, Atom } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -81,10 +76,6 @@ const sampleCourses = [
 
 const Courses = () => {
   const { toast } = useToast();
-  const [sectionData, setSectionData] = useState({
-    title: "Our Courses",
-    description: "Prepare for your dream career with our meticulously crafted course structures.",
-  });
 
   const handleDelete = (courseName: string) => {
     toast({
@@ -111,37 +102,6 @@ const Courses = () => {
             </Link>
           </Button>
         </div>
-
-        {/* Courses Section Settings */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Courses Section</CardTitle>
-            <CardDescription>Customize the title and description shown on your courses page</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="sectionTitle">Section Title</Label>
-                <Input
-                  id="sectionTitle"
-                  placeholder="e.g., Our Courses"
-                  value={sectionData.title}
-                  onChange={(e) => setSectionData({ ...sectionData, title: e.target.value })}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="sectionDescription">Section Description</Label>
-                <Textarea
-                  id="sectionDescription"
-                  placeholder="Describe your courses section..."
-                  value={sectionData.description}
-                  onChange={(e) => setSectionData({ ...sectionData, description: e.target.value })}
-                  rows={1}
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Courses Table */}
         <div className="border rounded-lg">
