@@ -1,5 +1,4 @@
-import { Search, Menu } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface DashboardHeaderProps {
@@ -20,16 +19,8 @@ const DashboardHeader = ({ onMenuClick, userName = "JD" }: DashboardHeaderProps)
         <Menu className="h-5 w-5" />
       </Button>
 
-      {/* Search */}
-      <div className="flex-1 max-w-xl">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input 
-            placeholder="Search... (Ctrl + K)" 
-            className="pl-10 bg-muted/50 border-0 focus-visible:ring-1"
-          />
-        </div>
-      </div>
+      {/* Spacer */}
+      <div className="flex-1" />
 
       {/* Right side - Profile only */}
       <div className="flex items-center ml-auto">
