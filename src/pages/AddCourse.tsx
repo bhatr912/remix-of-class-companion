@@ -6,20 +6,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Heart, BookOpen, GraduationCap, Code, Atom, Stethoscope, Calculator, Beaker, Globe } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 const iconOptions = [
-  { value: "heart", label: "Heart", icon: Heart },
-  { value: "book", label: "Book", icon: BookOpen },
-  { value: "graduation", label: "Graduation", icon: GraduationCap },
-  { value: "code", label: "Code", icon: Code },
-  { value: "atom", label: "Atom", icon: Atom },
-  { value: "stethoscope", label: "Stethoscope", icon: Stethoscope },
-  { value: "calculator", label: "Calculator", icon: Calculator },
-  { value: "beaker", label: "Beaker", icon: Beaker },
-  { value: "globe", label: "Globe", icon: Globe },
+  { value: "heart", label: "Heart", url: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
+  { value: "book", label: "Book", url: "https://cdn-icons-png.flaticon.com/512/3330/3330300.png" },
+  { value: "graduation", label: "Graduation", url: "https://cdn-icons-png.flaticon.com/512/3135/3135755.png" },
+  { value: "code", label: "Code", url: "https://cdn-icons-png.flaticon.com/512/1828/1828231.png" },
+  { value: "atom", label: "Atom", url: "https://cdn-icons-png.flaticon.com/512/2942/2942167.png" },
+  { value: "stethoscope", label: "Medical", url: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png" },
+  { value: "calculator", label: "Calculator", url: "https://cdn-icons-png.flaticon.com/512/897/897368.png" },
+  { value: "beaker", label: "Science", url: "https://cdn-icons-png.flaticon.com/512/2541/2541988.png" },
+  { value: "globe", label: "Globe", url: "https://cdn-icons-png.flaticon.com/512/616/616616.png" },
 ];
 
 const colorOptions = [
@@ -111,7 +111,7 @@ const AddCourse = () => {
                       {iconOptions.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
                           <div className="flex items-center gap-2">
-                            <option.icon className="h-4 w-4" />
+                            <img src={option.url} alt={option.label} className="h-4 w-4 object-contain" />
                             {option.label}
                           </div>
                         </SelectItem>
@@ -149,7 +149,7 @@ const AddCourse = () => {
                   <Label className="mb-3 block">Preview</Label>
                   <div className="flex items-center gap-4 p-4 border rounded-lg bg-card">
                     <div className={`${selectedColor.bg} p-3 rounded-full`}>
-                      <selectedIcon.icon className={`h-6 w-6 ${selectedColor.text}`} />
+                      <img src={selectedIcon.url} alt={selectedIcon.label} className="h-6 w-6 object-contain" />
                     </div>
                     <h3 className="font-bold">{formData.name || "Course Name"}</h3>
                   </div>
