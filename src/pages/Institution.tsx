@@ -181,10 +181,10 @@ const Institution = () => {
         collapsed ? "max-w-6xl" : "max-w-5xl"
       )}>
         <Tabs defaultValue="info" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6">
+          <TabsList className="grid w-full grid-cols-3 mb-6">
             <TabsTrigger value="info" className="gap-2">
               <Building2 className="h-4 w-4" />
-              <span className="hidden sm:inline">Info & About</span>
+              <span className="hidden sm:inline">Tuition Info</span>
               <span className="sm:hidden">Info</span>
             </TabsTrigger>
             <TabsTrigger value="gallery" className="gap-2">
@@ -197,14 +197,9 @@ const Institution = () => {
               <span className="hidden sm:inline">Banners</span>
               <span className="sm:hidden">Banners</span>
             </TabsTrigger>
-            <TabsTrigger value="branding" className="gap-2">
-              <ImageIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Logo & Cover</span>
-              <span className="sm:hidden">Logo</span>
-            </TabsTrigger>
           </TabsList>
 
-          {/* Tab 1: Info & About */}
+          {/* Tab 1: Tuition Info */}
           <TabsContent value="info" className="space-y-6">
             {/* Tuition Info Card */}
             <Card>
@@ -266,6 +261,100 @@ const Institution = () => {
                       className="pl-10 min-h-[80px] resize-none"
                     />
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Logo & Cover Image Card */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ImageIcon className="h-5 w-5 text-primary" />
+                  Logo & Cover Image
+                </CardTitle>
+                <CardDescription>
+                  Upload your institution's logo and cover image for branding
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Logo Upload */}
+                <div className="space-y-3">
+                  <Label>Institution Logo</Label>
+                  <div className="flex items-start gap-6">
+                    {logo ? (
+                      <div className="relative">
+                        <div className="h-32 w-32 overflow-hidden rounded-lg border bg-muted">
+                          <img 
+                            src={logo} 
+                            alt="Institution Logo"
+                            className="h-full w-full object-contain"
+                          />
+                        </div>
+                        <Button
+                          type="button"
+                          variant="destructive"
+                          size="sm"
+                          onClick={() => setLogo("")}
+                          className="absolute -top-2 -right-2 h-7 w-7 p-0 rounded-full"
+                        >
+                          <X className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    ) : (
+                      <label className="flex flex-col items-center justify-center h-32 w-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
+                        <ImagePlus className="h-8 w-8 text-muted-foreground mb-1" />
+                        <span className="text-xs text-muted-foreground text-center">Upload Logo</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={handleLogoUpload}
+                          className="hidden"
+                        />
+                      </label>
+                    )}
+                    <div className="flex-1 text-sm text-muted-foreground">
+                      <p>Your institution's logo will appear in the header and other branding areas.</p>
+                      <p className="mt-1">Recommended: Square image, minimum 200x200px</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Cover Image Upload */}
+                <div className="space-y-3">
+                  <Label>Cover Image</Label>
+                  {coverImage ? (
+                    <div className="relative aspect-[3/1] w-full overflow-hidden rounded-lg border">
+                      <img 
+                        src={coverImage} 
+                        alt="Cover Image"
+                        className="h-full w-full object-cover"
+                      />
+                      <Button
+                        type="button"
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => setCoverImage("")}
+                        className="absolute top-2 right-2 h-8 w-8 p-0"
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <label className="flex flex-col items-center justify-center aspect-[3/1] w-full border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
+                      <ImagePlus className="h-10 w-10 text-muted-foreground mb-2" />
+                      <span className="text-sm text-muted-foreground">Click to upload cover image</span>
+                      <span className="text-xs text-muted-foreground mt-1">Recommended: 1500x500px</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleCoverUpload}
+                        className="hidden"
+                      />
+                    </label>
+                  )}
+                  <p className="text-sm text-muted-foreground">
+                    The cover image will be displayed at the top of your institution's public profile page.
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -462,101 +551,6 @@ const Institution = () => {
             </Card>
           </TabsContent>
 
-          {/* Tab 4: Logo & Cover */}
-          <TabsContent value="branding" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <ImageIcon className="h-5 w-5 text-primary" />
-                  Logo & Cover Image
-                </CardTitle>
-                <CardDescription>
-                  Upload your institution's logo and cover image for branding
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {/* Logo Upload */}
-                <div className="space-y-3">
-                  <Label>Institution Logo</Label>
-                  <div className="flex items-start gap-6">
-                    {logo ? (
-                      <div className="relative">
-                        <div className="h-32 w-32 overflow-hidden rounded-lg border bg-muted">
-                          <img 
-                            src={logo} 
-                            alt="Institution Logo"
-                            className="h-full w-full object-contain"
-                          />
-                        </div>
-                        <Button
-                          type="button"
-                          variant="destructive"
-                          size="sm"
-                          onClick={() => setLogo("")}
-                          className="absolute -top-2 -right-2 h-7 w-7 p-0 rounded-full"
-                        >
-                          <X className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    ) : (
-                      <label className="flex flex-col items-center justify-center h-32 w-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
-                        <ImagePlus className="h-8 w-8 text-muted-foreground mb-1" />
-                        <span className="text-xs text-muted-foreground text-center">Upload Logo</span>
-                        <input
-                          type="file"
-                          accept="image/*"
-                          onChange={handleLogoUpload}
-                          className="hidden"
-                        />
-                      </label>
-                    )}
-                    <div className="flex-1 text-sm text-muted-foreground">
-                      <p>Your institution's logo will appear in the header and other branding areas.</p>
-                      <p className="mt-1">Recommended: Square image, minimum 200x200px</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Cover Image Upload */}
-                <div className="space-y-3">
-                  <Label>Cover Image</Label>
-                  {coverImage ? (
-                    <div className="relative aspect-[3/1] w-full overflow-hidden rounded-lg border">
-                      <img 
-                        src={coverImage} 
-                        alt="Cover Image"
-                        className="h-full w-full object-cover"
-                      />
-                      <Button
-                        type="button"
-                        variant="destructive"
-                        size="sm"
-                        onClick={() => setCoverImage("")}
-                        className="absolute top-2 right-2 h-8 w-8 p-0"
-                      >
-                        <X className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  ) : (
-                    <label className="flex flex-col items-center justify-center aspect-[3/1] w-full border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
-                      <ImagePlus className="h-10 w-10 text-muted-foreground mb-2" />
-                      <span className="text-sm text-muted-foreground">Click to upload cover image</span>
-                      <span className="text-xs text-muted-foreground mt-1">Recommended: 1500x500px</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleCoverUpload}
-                        className="hidden"
-                      />
-                    </label>
-                  )}
-                  <p className="text-sm text-muted-foreground">
-                    The cover image will be displayed at the top of your institution's public profile page.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
         </Tabs>
 
         {/* Save Button */}
