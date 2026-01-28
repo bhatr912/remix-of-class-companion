@@ -140,14 +140,6 @@ const Courses = () => {
                 />
               </div>
             </div>
-            {/* Section Preview */}
-            <div className="pt-4 border-t">
-              <Label className="mb-3 block">Preview</Label>
-              <div className="p-6 border rounded-lg bg-card text-center">
-                <h2 className="text-2xl font-bold text-foreground">{sectionData.title || "Our Courses"}</h2>
-                <p className="text-muted-foreground mt-2">{sectionData.description || "Your description here..."}</p>
-              </div>
-            </div>
           </CardContent>
         </Card>
 
