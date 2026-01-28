@@ -1,10 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, BookOpen, Calendar, Settings, PanelLeftClose, PanelLeft } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, Calendar, Settings, PanelLeftClose, PanelLeft, Building } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
+  { icon: Building, label: "Institution", path: "/dashboard/institution" },
   { icon: Users, label: "Students", path: "/dashboard/students" },
   { icon: BookOpen, label: "Courses", path: "/dashboard/courses" },
   { icon: Calendar, label: "Schedule", path: "/dashboard/schedule" },
